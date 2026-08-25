@@ -1,7 +1,5 @@
-/* Hallmark · macrostructure: Photographic (hero) + hanging section heads
- * nav: N6 Newspaper masthead · footer: Ft1 Mast-headed · theme: Sport (custom ocean-anchor)
- * enrichment: E8 Hero photography (generated: seedream · post-processed via crop/overlay) + placeholder cards elsewhere
- * genre: editorial
+/* Wingman Toby · single-page parallax rebuild · client palette (white/black/sky/navy)
+ * structure DNA studied from surfing-template.framer.website — original build, no copied assets/copy
  */
 @import "tailwindcss";
 @import "../tokens.css";
@@ -15,7 +13,9 @@
   --color-ink: var(--color-ink);
   --color-ink-2: var(--color-ink-2);
   --color-accent: var(--color-accent);
+  --color-accent-deep: var(--color-accent-deep);
   --color-accent-ink: var(--color-accent-ink);
+  --color-on-navy: var(--color-on-navy);
   --color-focus: var(--color-focus);
 
   --font-display: var(--font-display);
@@ -30,6 +30,7 @@
 html {
   overflow-x: clip;
   scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
 }
 
 body {

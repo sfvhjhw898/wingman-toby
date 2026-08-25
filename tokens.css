@@ -1,19 +1,27 @@
-/* Hallmark tokens · Wingman Toby · theme: Sport (editorial cluster, custom-tuned ocean anchor)
- * paper-band: light · display-style: display-condensed · accent-hue: cool (ocean teal, ~195°)
+/* Wingman Toby · brand palette locked by client: white / black / sky-blue / navy
+ * paper-band: light (white) · accent: sky-blue #8dcafc · deep: navy #1b466a
  */
 
 :root {
-  /* Colour — anchor hue 200 (ocean) */
-  --color-paper: oklch(97% 0.01 200);
-  --color-paper-2: oklch(93% 0.014 200);
-  --color-rule: oklch(83% 0.012 200);
-  --color-neutral: oklch(58% 0.01 200);
-  --color-muted: oklch(42% 0.01 200);
-  --color-ink: oklch(19% 0.015 210);
-  --color-ink-2: oklch(32% 0.014 210);
-  --color-accent: oklch(62% 0.15 195);
-  --color-accent-ink: oklch(98% 0.006 195);
-  --color-focus: oklch(60% 0.18 195);
+  /* Colour — client-specified hex, used literally */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-sky: #8dcafc;
+  --color-navy: #1b466a;
+
+  --color-paper: var(--color-white);
+  --color-paper-2: color-mix(in srgb, var(--color-sky) 8%, white);
+  --color-rule: color-mix(in srgb, var(--color-black) 12%, white);
+  --color-neutral: color-mix(in srgb, var(--color-black) 55%, white);
+  --color-muted: color-mix(in srgb, var(--color-black) 45%, white);
+  --color-ink: var(--color-black);
+  --color-ink-2: color-mix(in srgb, var(--color-black) 72%, white);
+
+  --color-accent: var(--color-sky);
+  --color-accent-deep: var(--color-navy);
+  --color-accent-ink: var(--color-navy);
+  --color-on-navy: var(--color-white);
+  --color-focus: var(--color-navy);
 
   /* Type */
   --font-display: "Big Shoulders", ui-sans-serif, system-ui, sans-serif;
@@ -46,8 +54,9 @@
 
   /* Rule / radius */
   --rule-hair: 1px;
-  --radius-sm: 4px;
-  --radius-md: 10px;
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
 
   /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -56,19 +65,4 @@
   --dur-fast: 150ms;
   --dur-base: 220ms;
   --dur-slow: 420ms;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-paper: oklch(15% 0.012 200);
-    --color-paper-2: oklch(19% 0.014 200);
-    --color-rule: oklch(30% 0.012 200);
-    --color-neutral: oklch(62% 0.01 200);
-    --color-muted: oklch(74% 0.008 200);
-    --color-ink: oklch(95% 0.008 200);
-    --color-ink-2: oklch(85% 0.008 200);
-    --color-accent: oklch(70% 0.12 195);
-    --color-accent-ink: oklch(14% 0.01 195);
-    --color-focus: oklch(74% 0.13 195);
-  }
 }
