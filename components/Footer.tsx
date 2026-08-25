@@ -36,7 +36,7 @@ export default function Footer() {
           </a>
           <div className="flex items-center gap-5">
             <a
-              href="https://facebook.com/toby.cunliffe.1/"
+              href="https://www.facebook.com/toby.cunliffe.1/"
               target="_blank"
               rel="noreferrer"
               aria-label="Wingman Toby on Facebook"
@@ -45,7 +45,7 @@ export default function Footer() {
               <FacebookIcon size={22} />
             </a>
             <a
-              href="https://instagram.com/toby_cunliffe"
+              href="https://www.instagram.com/toby_cunliffe?igsh=Z3UwdDZ2OXN3a2Vz&utm_source=qr"
               target="_blank"
               rel="noreferrer"
               aria-label="Wingman Toby on Instagram"
@@ -54,7 +54,7 @@ export default function Footer() {
               <InstagramIcon size={22} />
             </a>
             <a
-              href="https://youtube.com/@wingmantoby"
+              href="https://youtube.com/@wingmantoby?si=NBypn3p4Vhbnw70R"
               target="_blank"
               rel="noreferrer"
               aria-label="Wingman Toby on YouTube"

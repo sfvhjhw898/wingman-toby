@@ -20,7 +20,8 @@ const CLINICS = [
   {
     title: "1-to-1 Coaching",
     desc: "Video-reviewed private sessions, tailored to freestyle, wave, or your first flight.",
-    href: "/contact",
+    href: "https://tc.sailia.com/",
+    external: true,
   },
 ];
 
@@ -91,7 +92,15 @@ export default function Home() {
       <section className="container py-[var(--space-2xl)]">
         <p className="text-[var(--text-md)] text-[var(--color-ink-2)] max-w-[50ch]">
           Toby is currently based out of Vassiliki, one of Europe's best-known
-          wind and water sports bays — home to Club Vass's foiling facilities
+          wind and water sports bays — home to{" "}
+          <a
+            href="https://clubvass.com/foiling/wing-foiling/"
+            target="_blank"
+            rel="noreferrer"
+            className="underline decoration-1 underline-offset-4 hover:decoration-2 transition-[text-decoration-thickness] duration-[var(--dur-fast)]"
+          >
+            Club Vass&rsquo;s foiling facilities
+          </a>{" "}
           and consistent thermal wind through the summer season.
         </p>
       </section>
@@ -99,23 +108,40 @@ export default function Home() {
       <section className="container py-[var(--space-2xl)]">
         <SectionHead eyebrow="Coaching" title="Clinics & coaching days" />
         <div className="mt-[var(--space-xl)] grid grid-cols-1 sm:grid-cols-3 gap-[var(--space-lg)]">
-          {CLINICS.map((c) => (
-            <Link key={c.title} href={c.href} className="group block">
-              <PlaceholderCard label={c.title} ratio="4 / 5" />
-              <h3
-                className="mt-[var(--space-sm)] uppercase text-[var(--text-lg)]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
+          {CLINICS.map((c) => {
+            const cardBody = (
+              <>
+                <PlaceholderCard label={c.title} ratio="4 / 5" />
+                <h3
+                  className="mt-[var(--space-sm)] uppercase text-[var(--text-lg)]"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
+                >
+                  {c.title}
+                </h3>
+                <p className="mt-[var(--space-3xs)] text-[var(--text-sm)] text-[var(--color-ink-2)]">
+                  {c.desc}
+                </p>
+                <span className="mt-[var(--space-2xs)] inline-block text-[var(--text-sm)] underline decoration-1 underline-offset-4 group-hover:decoration-2 transition-[text-decoration-thickness] duration-[var(--dur-fast)]">
+                  View →
+                </span>
+              </>
+            );
+            return c.external ? (
+              <a
+                key={c.title}
+                href={c.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group block"
               >
-                {c.title}
-              </h3>
-              <p className="mt-[var(--space-3xs)] text-[var(--text-sm)] text-[var(--color-ink-2)]">
-                {c.desc}
-              </p>
-              <span className="mt-[var(--space-2xs)] inline-block text-[var(--text-sm)] underline decoration-1 underline-offset-4 group-hover:decoration-2 transition-[text-decoration-thickness] duration-[var(--dur-fast)]">
-                View →
-              </span>
-            </Link>
-          ))}
+                {cardBody}
+              </a>
+            ) : (
+              <Link key={c.title} href={c.href} className="group block">
+                {cardBody}
+              </Link>
+            );
+          })}
         </div>
       </section>
 

@@ -66,13 +66,15 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/book"
+          <a
+            href="https://tc.sailia.com/"
+            target="_blank"
+            rel="noreferrer"
             onClick={() => setOpen(false)}
             className="uppercase tracking-wide text-[var(--color-accent-ink)] bg-[var(--color-accent)] px-3 py-1 rounded-[var(--radius-sm)] min-h-11 sm:min-h-0 flex items-center justify-center"
           >
             Book
-          </Link>
+          </a>
         </nav>
       </div>
       <hr className="hairline" />
