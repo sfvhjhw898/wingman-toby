@@ -104,6 +104,21 @@ export default function Footer() {
 
         <hr className="my-[var(--space-lg)] border-t border-white/20" />
 
+        <p
+          className="uppercase leading-[0.85] tracking-tight text-center select-none"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 800,
+            fontSize: "clamp(2.5rem, 11vw, 8rem)",
+            color: "color-mix(in srgb, var(--color-on-navy) 18%, var(--color-accent-deep))",
+          }}
+          aria-hidden="true"
+        >
+          Wingman Toby
+        </p>
+
+        <hr className="my-[var(--space-lg)] border-t border-white/20" />
+
         <div className="flex flex-wrap items-center justify-between gap-4">
           <span className="uppercase text-[var(--text-md)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
             Wingman Toby

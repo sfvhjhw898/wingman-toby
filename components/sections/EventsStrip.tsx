@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Reveal from "@/components/motion/Reveal";
+import BlurReveal from "@/components/motion/BlurReveal";
+import Squiggle from "@/components/Squiggle";
 import queenmary from "@/public/images/site/loc-queenmary.jpg";
 import xs2 from "@/public/images/site/loc-2xs.jpg";
 import stithians from "@/public/images/site/event-stithians-1.jpg";
@@ -34,39 +35,47 @@ const EVENTS = [
 export default function EventsStrip() {
   return (
     <section id="events" className="container py-[var(--space-3xl)] scroll-mt-[4.5rem]">
-      <Reveal>
-        <p className="eyebrow mb-[var(--space-2xs)]">Events</p>
-        <h2
-          className="uppercase"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(2rem, 4.5vw, 3.4rem)" }}
-        >
-          Upcoming October Clinics
-        </h2>
-      </Reveal>
+      <div className="text-center">
+        <BlurReveal as="p" className="eyebrow">
+          Events
+        </BlurReveal>
+        <BlurReveal as="h2" delay={0.08} className="relative inline-block uppercase mt-[var(--space-2xs)]">
+          <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.6rem)" }}>
+            Upcoming October Clinics
+          </span>
+          <Squiggle className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-40 h-3" />
+        </BlurReveal>
+      </div>
 
-      <div className="mt-[var(--space-xl)] grid grid-cols-1 sm:grid-cols-3 gap-[var(--space-lg)]">
+      <div className="mt-[var(--space-2xl)] grid grid-cols-1 sm:grid-cols-3 gap-[var(--space-lg)]">
         {EVENTS.map((e, i) => (
-          <Reveal key={e.name} delay={i * 0.08}>
-            <div className="relative overflow-hidden rounded-[var(--radius-md)]" style={{ aspectRatio: "4 / 5" }}>
+          <BlurReveal
+            key={e.name}
+            delay={i * 0.08}
+            className="rounded-[var(--radius-lg)] border border-[var(--color-rule)] overflow-hidden"
+          >
+            <div className="relative" style={{ aspectRatio: "4 / 5" }}>
               <Image src={e.img} alt={e.name} fill loading="lazy" className="object-cover" sizes="(min-width: 640px) 30vw, 100vw" />
             </div>
-            <div className="mt-[var(--space-sm)] flex items-baseline justify-between gap-2">
-              <h3 className="uppercase text-[var(--text-lg)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
-                {e.name}
-              </h3>
-              <span className="eyebrow">{e.dates}</span>
+            <div className="p-5">
+              <div className="flex items-baseline justify-between gap-2">
+                <h3 className="uppercase text-[var(--text-lg)]" style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}>
+                  {e.name}
+                </h3>
+                <span className="eyebrow">{e.dates}</span>
+              </div>
+              <p className="mt-[var(--space-3xs)] text-[var(--text-sm)] text-[var(--color-ink-2)]">{e.desc}</p>
+              {e.price ? <p className="mt-[var(--space-2xs)] text-[var(--text-sm)] font-medium">{e.price}</p> : null}
+              <a
+                href={e.href}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-[var(--space-sm)] inline-block min-h-11 items-center flex w-fit rounded-full bg-[var(--color-accent)] px-5 text-[var(--text-sm)] text-[var(--color-accent-ink)] font-medium hover:opacity-90 transition-opacity duration-[var(--dur-fast)]"
+              >
+                Book or find out more
+              </a>
             </div>
-            <p className="mt-[var(--space-3xs)] text-[var(--text-sm)] text-[var(--color-ink-2)]">{e.desc}</p>
-            {e.price ? <p className="mt-[var(--space-2xs)] text-[var(--text-sm)] font-medium">{e.price}</p> : null}
-            <a
-              href={e.href}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-[var(--space-sm)] inline-block min-h-11 items-center flex w-fit rounded-[var(--radius-sm)] bg-[var(--color-accent)] px-5 text-[var(--text-sm)] text-[var(--color-accent-ink)] font-medium hover:opacity-90 transition-opacity duration-[var(--dur-fast)]"
-            >
-              Book or find out more
-            </a>
-          </Reveal>
+          </BlurReveal>
         ))}
       </div>
     </section>

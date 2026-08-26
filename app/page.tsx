@@ -5,6 +5,8 @@ import LocationsGrid from "@/components/sections/LocationsGrid";
 import ProcessSteps from "@/components/sections/ProcessSteps";
 import EventsStrip from "@/components/sections/EventsStrip";
 import Testimonial from "@/components/sections/Testimonial";
+import FAQ from "@/components/sections/FAQ";
+import Marquee from "@/components/Marquee";
 import MailingList from "@/components/sections/MailingList";
 
 export default function Home() {
@@ -17,6 +19,8 @@ export default function Home() {
       <ProcessSteps />
       <EventsStrip />
       <Testimonial />
+      <FAQ />
+      <Marquee />
       <MailingList />
     </>
   );
