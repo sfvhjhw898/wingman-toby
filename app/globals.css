@@ -23,63 +23,72 @@
   --font-outlier: var(--font-outlier);
 }
 
-* {
-  box-sizing: border-box;
+/* Tailwind v4 uses CSS cascade layers; unlayered rules always beat
+   `@layer utilities` regardless of specificity. Everything below that
+   a utility class (text-white, text-*, etc.) should be able to override
+   must live in @layer base/components, not as bare rules. */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: clip;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
+
+  body {
+    overflow-x: clip;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--color-ink);
+  }
+
+  p {
+    margin: 0;
+    max-width: 65ch;
+  }
+
+  a {
+    color: inherit;
+  }
 }
 
-html {
-  overflow-x: clip;
-  scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
-}
+@layer components {
+  .eyebrow {
+    font-family: var(--font-outlier);
+    font-size: var(--text-xs);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
 
-body {
-  overflow-x: clip;
-  background: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-body);
-  font-weight: 400;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
+  .container {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: var(--page-gutter);
+  }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.03;
-  letter-spacing: -0.02em;
-  margin: 0;
-  color: var(--color-ink);
-}
-
-p {
-  margin: 0;
-  max-width: 65ch;
-}
-
-a {
-  color: inherit;
-}
-
-.eyebrow {
-  font-family: var(--font-outlier);
-  font-size: var(--text-xs);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
-.container {
-  width: 100%;
-  max-width: 78rem;
-  margin-inline: auto;
-  padding-inline: var(--page-gutter);
-}
-
-.hairline {
-  border: none;
-  border-top: var(--rule-hair) solid var(--color-rule);
-  margin: 0;
+  .hairline {
+    border: none;
+    border-top: var(--rule-hair) solid var(--color-rule);
+    margin: 0;
+  }
 }
 
 a:focus-visible,

@@ -1,5 +1,6 @@
 import { Mail } from "lucide-react";
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from "@/components/icons";
+import Marquee from "@/components/Marquee";
 
 const SPONSORS = ["Duotone", "ION", "BW"];
 const PARTNERS = ["SWM", "Cornwall Solutions", "2XS Pro Center"];
@@ -14,8 +15,9 @@ const SITE_LINKS = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="mt-[var(--space-3xl)] bg-[var(--color-accent-deep)] text-[var(--color-on-navy)]">
-      <div className="container py-[var(--space-2xl)]">
+    <footer id="contact" className="mt-[var(--space-3xl)]">
+      <Marquee />
+      <div className="bg-[var(--color-accent-deep)] text-[var(--color-on-navy)] container py-[var(--space-2xl)]">
         <p
           className="uppercase leading-[0.95] tracking-tight"
           style={{

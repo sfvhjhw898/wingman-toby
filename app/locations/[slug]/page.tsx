@@ -32,7 +32,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         <div className="absolute left-[var(--page-gutter)] bottom-[var(--space-lg)] text-white">
           <p className="eyebrow text-white/80">{loc.category} Clinics</p>
           <h1
-            className="uppercase"
+            className="uppercase text-white"
             style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(2.5rem, 7vw, 5rem)" }}
           >
             {loc.name}

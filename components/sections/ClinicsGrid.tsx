@@ -38,7 +38,7 @@ const CLINICS: {
 
 export default function ClinicsGrid() {
   return (
-    <section id="clinics" className="py-[var(--space-3xl)] scroll-mt-[4.5rem]">
+    <section id="clinics" className="pt-[var(--space-3xl)] pb-[var(--space-lg)] scroll-mt-[4.5rem]">
       <div className="container text-center">
         <BlurReveal as="p" className="eyebrow">
           Coaching
@@ -51,37 +51,46 @@ export default function ClinicsGrid() {
         </BlurReveal>
       </div>
 
-      <div className="mt-[var(--space-3xl)] flex flex-col gap-[var(--space-3xl)]">
+      <div className="mt-[var(--space-2xl)]">
         {CLINICS.map((c, i) => (
-          <div key={c.title} className="container">
-            <div className="relative overflow-hidden rounded-[var(--radius-lg)]" style={{ aspectRatio: "16 / 8" }}>
-              <Image
-                src={c.img}
-                alt={c.title}
-                fill
-                loading="lazy"
-                className="object-cover"
-                sizes="100vw"
-              />
-              <BlurReveal
-                delay={0.1}
-                className={`absolute bottom-0 ${i % 2 === 0 ? "left-0 sm:left-8" : "right-0 sm:right-8"} m-4 sm:m-0 sm:bottom-8 max-w-[24rem] rounded-[var(--radius-md)] bg-[var(--color-paper)] p-6 shadow-lg`}
+          <div
+            key={c.title}
+            className="sticky"
+            style={{ top: `calc(4.5rem + ${i * 22}px)`, zIndex: i + 1 }}
+          >
+            <div className="container pb-[var(--space-lg)]">
+              <div
+                className="relative overflow-hidden rounded-[var(--radius-lg)] shadow-xl ring-1 ring-black/5"
+                style={{ aspectRatio: "16 / 8", background: "var(--color-paper)" }}
               >
-                <h3
-                  className="uppercase text-[var(--text-xl)]"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+                <Image
+                  src={c.img}
+                  alt={c.title}
+                  fill
+                  loading="lazy"
+                  placeholder="blur"
+                  className="object-cover"
+                  sizes="100vw"
+                />
+                <div
+                  className={`absolute bottom-0 ${i % 2 === 0 ? "left-0 sm:left-8" : "right-0 sm:right-8"} m-4 sm:m-0 sm:bottom-8 max-w-[24rem] rounded-[var(--radius-md)] bg-[var(--color-paper)] p-6 shadow-lg`}
                 >
-                  {c.title}
-                </h3>
-                <p className="mt-[var(--space-2xs)] text-[var(--text-sm)] text-[var(--color-ink-2)]">{c.desc}</p>
-                <p className="mt-[var(--space-2xs)] eyebrow">{c.meta}</p>
-                <Link
-                  href={c.href}
-                  className="mt-[var(--space-sm)] inline-flex min-h-11 items-center rounded-full bg-[var(--color-accent-deep)] px-5 text-[var(--text-sm)] font-medium text-[var(--color-on-navy)] hover:opacity-90 transition-opacity duration-[var(--dur-fast)]"
-                >
-                  View →
-                </Link>
-              </BlurReveal>
+                  <h3
+                    className="uppercase text-[var(--text-xl)]"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+                  >
+                    {c.title}
+                  </h3>
+                  <p className="mt-[var(--space-2xs)] text-[var(--text-sm)] text-[var(--color-ink-2)]">{c.desc}</p>
+                  <p className="mt-[var(--space-2xs)] eyebrow">{c.meta}</p>
+                  <Link
+                    href={c.href}
+                    className="mt-[var(--space-sm)] inline-flex min-h-11 items-center rounded-full bg-[var(--color-accent-deep)] px-5 text-[var(--text-sm)] font-medium text-[var(--color-on-navy)] hover:opacity-90 transition-opacity duration-[var(--dur-hover)] ease-[var(--ease-hover)]"
+                  >
+                    View →
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         ))}
