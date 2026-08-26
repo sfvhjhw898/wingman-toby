@@ -17,12 +17,12 @@ export default function Home() {
       <Hero />
       <Marquee />
       <AboutHighlights />
+      <EventsStrip />
       <Stats />
       <ClinicsGrid />
       <LocationsGrid />
       <ProcessSteps />
       <Gallery />
-      <EventsStrip />
       <Testimonial />
       <FAQ />
       <MailingList />

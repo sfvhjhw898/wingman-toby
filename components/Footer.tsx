@@ -11,15 +11,15 @@ import cornwall from "@/public/images/site/partner-cornwall.png";
 import xs2 from "@/public/images/site/partner-2xs.png";
 
 const SPONSOR_LOGOS: { name: string; src: StaticImageData; h: number }[] = [
-  { name: "Duotone", src: duotone, h: 20 },
-  { name: "ION", src: ion, h: 18 },
-  { name: "BW", src: bw, h: 20 },
+  { name: "Duotone", src: duotone, h: 36 },
+  { name: "ION", src: ion, h: 32 },
+  { name: "BW", src: bw, h: 36 },
 ];
 
 const PARTNER_LOGOS: { name: string; src: StaticImageData; h: number }[] = [
-  { name: "SWM", src: swm, h: 14 },
-  { name: "Cornwall Solutions", src: cornwall, h: 24 },
-  { name: "2XS Pro Center", src: xs2, h: 24 },
+  { name: "SWM", src: swm, h: 24 },
+  { name: "Cornwall Solutions", src: cornwall, h: 44 },
+  { name: "2XS Pro Center", src: xs2, h: 44 },
 ];
 
 // DPC Tenerife has no logo asset on file — shown as text so nothing is invented.
