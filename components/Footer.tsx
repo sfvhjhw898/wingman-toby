@@ -1,15 +1,36 @@
+import Image, { StaticImageData } from "next/image";
 import { Mail } from "lucide-react";
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from "@/components/icons";
 import Marquee from "@/components/Marquee";
 
-const SPONSORS = ["Duotone", "ION", "BW"];
-const PARTNERS = ["SWM", "Cornwall Solutions", "2XS Pro Center"];
+import duotone from "@/public/images/site/sponsor-duotone.webp";
+import ion from "@/public/images/site/sponsor-ion.webp";
+import bw from "@/public/images/site/sponsor-bw.png";
+import swm from "@/public/images/site/partner-swm.png";
+import cornwall from "@/public/images/site/partner-cornwall.png";
+import xs2 from "@/public/images/site/partner-2xs.png";
+
+const SPONSOR_LOGOS: { name: string; src: StaticImageData; h: number }[] = [
+  { name: "Duotone", src: duotone, h: 20 },
+  { name: "ION", src: ion, h: 18 },
+  { name: "BW", src: bw, h: 20 },
+];
+
+const PARTNER_LOGOS: { name: string; src: StaticImageData; h: number }[] = [
+  { name: "SWM", src: swm, h: 14 },
+  { name: "Cornwall Solutions", src: cornwall, h: 24 },
+  { name: "2XS Pro Center", src: xs2, h: 24 },
+];
+
+// DPC Tenerife has no logo asset on file — shown as text so nothing is invented.
+const PARTNER_TEXT_ONLY = ["DPC Tenerife"];
 
 const SITE_LINKS = [
   { href: "/#about", label: "About" },
   { href: "/#clinics", label: "Clinics" },
   { href: "/#locations", label: "Locations" },
   { href: "/#events", label: "Events" },
+  { href: "/products", label: "Products" },
   { href: "/book", label: "Book" },
 ];
 
@@ -85,18 +106,23 @@ export default function Footer() {
             ))}
           </nav>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <span className="eyebrow mb-1 text-white/60">Sponsors</span>
-            {SPONSORS.map((s) => (
-              <span key={s} className="text-[var(--text-sm)] text-white/85">
-                {s}
+            {SPONSOR_LOGOS.map((s) => (
+              <span key={s.name} className="inline-flex w-fit items-center rounded-[var(--radius-sm)] bg-white px-3 py-2">
+                <Image src={s.src} alt={s.name} height={s.h} style={{ width: "auto", height: s.h }} />
               </span>
             ))}
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <span className="eyebrow mb-1 text-white/60">Partners</span>
-            {PARTNERS.map((p) => (
+            {PARTNER_LOGOS.map((p) => (
+              <span key={p.name} className="inline-flex w-fit items-center rounded-[var(--radius-sm)] bg-white px-3 py-2">
+                <Image src={p.src} alt={p.name} height={p.h} style={{ width: "auto", height: p.h }} />
+              </span>
+            ))}
+            {PARTNER_TEXT_ONLY.map((p) => (
               <span key={p} className="text-[var(--text-sm)] text-white/85">
                 {p}
               </span>

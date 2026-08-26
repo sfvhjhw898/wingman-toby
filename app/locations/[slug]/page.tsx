@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LOCATIONS, getLocation } from "@/lib/locations";
+import LocationHero from "@/components/sections/LocationHero";
 
 export function generateStaticParams() {
   return LOCATIONS.map((l) => ({ slug: l.slug }));
@@ -22,24 +23,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
   return (
     <div>
-      <section className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
-        <Image src={loc.img} alt={`${loc.name}, ${loc.area}`} fill priority className="object-cover" sizes="100vw" />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(0deg, rgba(27,70,106,0.6), transparent 55%)" }}
-          aria-hidden="true"
-        />
-        <div className="absolute left-[var(--page-gutter)] bottom-[var(--space-lg)] text-white">
-          <p className="eyebrow text-white/80">{loc.category} Clinics</p>
-          <h1
-            className="uppercase text-white"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(2.5rem, 7vw, 5rem)" }}
-          >
-            {loc.name}
-          </h1>
-          <p className="mt-1 text-[var(--text-md)] text-white/90">{loc.area}</p>
-        </div>
-      </section>
+      <LocationHero img={loc.img} name={loc.name} area={loc.area} category={loc.category} />
 
       <div className="container py-[var(--space-2xl)]">
         <p className="text-[var(--text-md)] text-[var(--color-ink-2)] max-w-[52ch]">{loc.desc}</p>
